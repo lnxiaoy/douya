@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>douya</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+.section { text-align: center; font: 30px "Microsoft Yahei"; color: #fff;}
+.section2 p { position: relative; left: -120%;}
+.section3 p { position: relative; bottom: -120%;}
+.section4 p { display: none;}
+    </style>
+</head>
+<body>
+    <div class="section section1">
+      <img src="img/logo.jpg">
+      <h3>我是新人</h3>
+      <p>刚加入绿豆芽，遇见了好多小伙伴!</p>
+    </div>
+    <div class="section section2">
+      <img src="img/lan.jpg" style="width:350px;">
+      <h3>这是我</h3>
+      <p>嘿嘿，真人不漏相</p>
+    </div>
+    <div class="section section3">
+      <p>想一起搞点什么吗</p>
+    </div>
+    <div class="section section4">
+      <p><a href="http://www.douyatech.com/join.php">联系我们</a></p>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+<script src="js/jquery-ui-1.10.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $.fn.fullpage({
+    slidesColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+    anchors: ['page1', 'page2', 'page3', 'page4'],
+    afterLoad: function(anchorLink, index){
+      if(index == 2){
+        $('.section2').find('p').delay(500).animate({
+          left: '0'
+        }, 1000, 'easeOutExpo');
+      }
+      if(index == 3){
+        $('.section3').find('p').delay(500).animate({
+          bottom: '0'
+        }, 1000, 'easeOutExpo');
+      }
+      if(index == 4){
+        $('.section4').find('p').fadeIn(2000);
+      }
+    },
+    onLeave: function(index, direction){
+      if(index == '2'){
+        $('.section2').find('p').delay(500).animate({
+          left: '-120%'
+        }, 1000, 'easeOutExpo');
+      }
+      if(index == '3'){
+        $('.section3').find('p').delay(500).animate({
+          bottom: '-120%'
+        }, 1000, 'easeOutExpo');
+      }
+      if(index == '4'){
+        $('.section4').find('p').fadeOut(2000);
+      }
+    }
+  });
+});
+</script>
+
+</html>
